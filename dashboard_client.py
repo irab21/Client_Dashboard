@@ -11,7 +11,7 @@ st.sidebar.title('Client 1')
 st.markdown('### By My Company')
 st.sidebar.markdown('### A Review of the past year ')
 
-DATA_URL= ('C:\\Users\\DELL\\Desktop\\dummy_data.xlsx')
+DATA_URL= dummy_data.xlsx
 
 
 @st.cache(persist =True)
