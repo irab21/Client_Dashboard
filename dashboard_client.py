@@ -17,11 +17,11 @@ st.image(image,width=350)
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
 
-	data = pd.read_excel(uploaded_file)
+	data1 = pd.read_excel(uploaded_file)
 
 	#@st.cache(persist =True)
 def load_data():
-	data = pd.read_excel(data)
+	data = pd.read_excel(data1)
 	return data
 data = load_data()
 #temp_file = st.file_uploader("Enter file here!")
