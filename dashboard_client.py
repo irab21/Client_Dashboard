@@ -20,10 +20,11 @@ if uploaded_file is not None:
 	data1 = pd.read_excel(uploaded_file)
 
 	#@st.cache(persist =True)
-#def load_data():
+#	def load_data():
 #	data = pd.read_excel(uploaded_file)
 #	return data
-
+else:
+	st.write("Please upload the file")
 #data1 = load_data()
 #temp_file = st.file_uploader("Enter file here!")
 #if st.button("Save as working file"):
