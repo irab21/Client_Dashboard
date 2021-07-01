@@ -24,7 +24,7 @@ if uploaded_file is not None:
 		data = pd.read_excel(uploaded_file)
 		return data
 
-data = load_data()
+data1 = load_data()
 #temp_file = st.file_uploader("Enter file here!")
 #if st.button("Save as working file"):
  #   with open("ON_DISK_FILE.extension","wb") as file_handle:
@@ -32,17 +32,17 @@ data = load_data()
 	
 	
 
-total_selections=data['Status'].value_counts()
-total_selections=data.groupby('Status').count()
+total_selections=data1['Status'].value_counts()
+total_selections=data1.groupby('Status').count()
 
 
-total_selections1=data['Client'].value_counts()
-total_selections1=data.groupby('Client').count()
+total_selections1=data1['Client'].value_counts()
+total_selections1=data1.groupby('Client').count()
 total_selections1=total_selections1.sum()
 	#st.write(total_selections1)
 	#st.write(total_selections)
 
-clients= data['Client'].value_counts()
+clients= data1['Client'].value_counts()
 	#titles
 st.title('Client Report FY 2020-2021')
 st.sidebar.title('%s  '% (clients.index[0]))
@@ -53,7 +53,7 @@ st.sidebar.markdown('### A Review of the past year ')
 st.sidebar.markdown("### Number Of Positive Coneversions, Negative Conversions, and Pending Conversions")
 
 	#newdataframe
-status_count= data['Status'].value_counts()
+status_count= data1['Status'].value_counts()
 status_count=pd.DataFrame({'Status':status_count.index, 'Count':status_count.values})
 #st.write(status_count)
 
@@ -68,18 +68,18 @@ if st.sidebar.checkbox('Visual',True, key=4):
 
 st.sidebar.markdown("### Level Of roles Worked On")
 
-skill = data['Skill'].value_counts()
-skill=data.groupby('Skill').count()
+skill = data1['Skill'].value_counts()
+skill=data1.groupby('Skill').count()
 skill=skill.sum()
 	#st.write(skill)
 
-level_conversion=data.groupby('Level').count()
+level_conversion=data1.groupby('Level').count()
 	#st.write(level_conversion)
 
 
 
-level_roles = data['Level'].value_counts()
-level_conversion1=data.groupby('Level').count()
+level_roles = data1['Level'].value_counts()
+level_conversion1=data1.groupby('Level').count()
 level_conversion1=level_conversion1.loc[:,"Joining TAT"]
 level_roles = pd.DataFrame({'Level Of Roles':level_roles.index, 'Count Of Selections': level_roles.values, 'Count Of Joinings': level_conversion1.values })
 st.markdown("### Level of Roles Worked On")
@@ -97,7 +97,7 @@ if st.sidebar.checkbox('Visual',True,key=1):
 st.sidebar.markdown("### Selection TAT")
 
 
-selection_tat_count= data['Selection TAT'].describe().loc[['mean','min','max']].round(decimals=0)
+selection_tat_count= data1['Selection TAT'].describe().loc[['mean','min','max']].round(decimals=0)
 selection_tat_count=pd.DataFrame({'Selection TAT':selection_tat_count.index,'Days':selection_tat_count.values})
 
 	#st.write(selection_tat_count)
@@ -115,7 +115,7 @@ if st.sidebar.checkbox('Visual',True,key=2):
 
 st.sidebar.markdown("### Offer TAT")
 #select= st.sidebar.selectbox('Visualization',['Bar Graph'], key=1)
-offer_tat_count= data['Offer TAT'].describe().loc[['mean','min','max']].round(decimals=0)
+offer_tat_count= data1['Offer TAT'].describe().loc[['mean','min','max']].round(decimals=0)
 offer_tat_count=pd.DataFrame({'Offer TAT':offer_tat_count.index,'days':offer_tat_count.values})
 
 #st.write(offer_tat_count)
@@ -133,7 +133,7 @@ if st.sidebar.checkbox('Visual',True,key=3):
 
 st.sidebar.markdown('### Joining TAT')
 
-joining_tat_count=data['Joining TAT'].describe().loc[['mean','min','max']].round(decimals=0)
+joining_tat_count=data1['Joining TAT'].describe().loc[['mean','min','max']].round(decimals=0)
 joining_tat_count=pd.DataFrame({'Joining TAT':joining_tat_count.index,'days':joining_tat_count.values})
 #st.write(joining_tat_count)
 st.markdown('### Joining TAT')
@@ -152,9 +152,9 @@ word_category= st.sidebar.radio('Display Word Cloud for Skill',('Skill','Role'))
 st.set_option('deprecation.showPyplotGlobalUse', False)
 if st.sidebar.checkbox('Word Cloud',True,key=5):
 	st.header('Word Cloud for %s category' % (word_category))
-	df1=data[data['Role']== word_category]
-	df= data[data['Skill'] == word_category]
-	value_list1= data['Skill'].to_list()
+	df1=data1[data1['Role']== word_category]
+	df= data1[data1['Skill'] == word_category]
+	value_list1= data1['Skill'].to_list()
 	value_list1 = [x for x in value_list1 if pd.isnull(x) == False and x != 'nan']
 	value_list2=data['Role'].to_list()
 	value_list2= [x for x in value_list2 if pd.isnull(x) == False and x != 'nan']
