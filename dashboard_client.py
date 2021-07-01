@@ -15,16 +15,16 @@ image= Image.open(image_url)
 st.image(image,width=350)
 	
 uploaded_file = st.file_uploader("Choose a file")
-#if uploaded_file is not None:
+if uploaded_file is not None:
 
-	#data1 = pd.read_excel(uploaded_file)
+	data1 = pd.read_excel(uploaded_file)
 
 	#@st.cache(persist =True)
-def load_data():
-	data = pd.read_excel(uploaded_file)
-	return data
+#def load_data():
+#	data = pd.read_excel(uploaded_file)
+#	return data
 
-data1 = load_data()
+#data1 = load_data()
 #temp_file = st.file_uploader("Enter file here!")
 #if st.button("Save as working file"):
  #   with open("ON_DISK_FILE.extension","wb") as file_handle:
