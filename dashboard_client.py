@@ -14,10 +14,10 @@ image_url='posterityfinal.png'
 image= Image.open(image_url) 
 st.image(image,width=350)
 	
-temp_file = st.file_uploader("Enter file here!")
+data = st.file_uploader("Enter file here!")
 if st.button("Save as working file"):
     with open("ON_DISK_FILE.extension","wb") as file_handle:
-        file_handle.write(temp_file.read())
+        file_handle.write(data.read())
 	
 	
 
