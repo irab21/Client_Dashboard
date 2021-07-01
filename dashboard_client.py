@@ -23,7 +23,11 @@ if uploaded_file is not None:
 	def load_data():
 		data = pd.read_excel(data)
 		return data
-	
+data = load_data()
+#temp_file = st.file_uploader("Enter file here!")
+#if st.button("Save as working file"):
+ #   with open("ON_DISK_FILE.extension","wb") as file_handle:
+  #      file_handle.write(temp_file.read())	
 	
 	
 
