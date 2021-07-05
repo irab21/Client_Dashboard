@@ -146,9 +146,9 @@ word_category= st.sidebar.radio('Display Word Cloud for Skill',('Skill','Role'))
 st.set_option('deprecation.showPyplotGlobalUse', False)
 if st.sidebar.checkbox('Word Cloud',True,key=5):
 	st.header('Word Cloud for %s category' % (word_category))
-	df1=data1[data1['Role']== word_category]
-	df= data1[data1['Skill'] == word_category]
-	value_list1= data1['Skill'].to_list()
+	df1=data[data['Role']== word_category]
+	df= data[data['Skill'] == word_category]
+	value_list1= data['Skill'].to_list()
 	value_list1 = [x for x in value_list1 if pd.isnull(x) == False and x != 'nan']
 	value_list2=data['Role'].to_list()
 	value_list2= [x for x in value_list2 if pd.isnull(x) == False and x != 'nan']
